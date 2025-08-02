@@ -12,7 +12,6 @@ fun main(){
 
        //3.    Simulate Shopping Cart (MutableList)
        val shoppingCart = mutableListOf<String>()
-
        input@ while (true) {
            print("Enter the product name:")
            val productName = readLine()!!.trim()
@@ -43,7 +42,20 @@ fun main(){
 
        }
 
+       //4.    Calculate Order Total (Loops & Conditions)
+        var totalCost = 0.0
+        var price = 0.0
+        for (itemName  in productNames){
 
 
+            for (productShopping in shoppingCart){
+                if (productShopping.lowercase().equals(itemName.lowercase())){
+                    var indexProductName = productNames.indexOf(productShopping)
+                    price = productPrices[indexProductName].toDouble()
+                    totalCost += price
+                }
+            }
 
+
+        }
 }
