@@ -45,6 +45,7 @@ fun main(){
        //4.    Calculate Order Total (Loops & Conditions)
         var totalCost = 0.0
         var price = 0.0
+        var isFound = false
         for (itemName  in productNames){
 
 
@@ -53,9 +54,13 @@ fun main(){
                     var indexProductName = productNames.indexOf(productShopping)
                     price = productPrices[indexProductName].toDouble()
                     totalCost += price
+                    isFound = true
                 }
             }
 
 
+        }
+        if(isFound){
+            println("Total cost ${totalCost}")
         }
 }
