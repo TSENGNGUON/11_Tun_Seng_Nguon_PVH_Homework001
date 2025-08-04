@@ -77,7 +77,9 @@ fun main() {
 
     if (foundItem) {
         println("=> Total cost: $${"%.2f".format(totalCost)}")
+
     }
+
 
     if (foundItem && invalidProduct.isNotEmpty()) {
         println("................")
@@ -87,7 +89,7 @@ fun main() {
     // Step 5: Apply Discount (Conditional)
     var count = 0
     val flatDiscount = 10.00
-    var finalCost = 0.0
+    var finalCost = totalCost
     var laptopMouseDis = 0.0
     var headPhoneMicrophoneDis = 0.0
     var isDiscount = false
@@ -134,8 +136,30 @@ fun main() {
         finalCost = totalCost - finalCombo
     }
 
+
+    var premiumTier = 1500.00
+    var standardTier = 500.00
+    if (totalCost > premiumTier){
+        isDiscount = true
+    }else if (totalCost > standardTier){
+        isDiscount = true
+    }
+
     if (isDiscount) {
         println("======= Total after discount =======")
+
+
+        if (finalCost > premiumTier){
+            var tenPercentage = 0.1
+            var discountFinalPrice = totalCost * tenPercentage
+            finalCost = totalCost - discountFinalPrice
+
+
+        }else if (finalCost > standardTier){
+            var fivePercentage = 0.05
+            var discountFinalPrice = totalCost * fivePercentage
+            finalCost = totalCost - discountFinalPrice
+        }
         println("=> Total cost: $${"%.2f".format(finalCost)}")
     }
 }
